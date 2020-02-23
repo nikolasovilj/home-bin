@@ -1,10 +1,7 @@
 # home-bin
 ## set of utilites I wrote
 
-Add home-bin to your PATH variable so that utils are accessible 
-
-
-
+Add home-bin to your PATH variable so that utils are accessible to bash
 
 ```sh
 cd ~ && git clone https://github.com/nikolasovilj/home-bin.git &&\
