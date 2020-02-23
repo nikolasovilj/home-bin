@@ -1,2 +1,2 @@
 # home-bin
-##set of my own utilites
+## set of utilites I wrote
