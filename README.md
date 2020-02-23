@@ -8,5 +8,5 @@ Add home-bin to your PATH variable so that utils are accessible
 
 ```sh
 cd ~ && git clone https://github.com/nikolasovilj/home-bin.git &&\
- user=`whoami` && echo export PATH=\$PATH:/$user/home-bin >> .bashrc
+ user=`whoami` && echo export PATH=\$PATH:/home/$user/home-bin >> .bashrc
 ```
