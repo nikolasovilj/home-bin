@@ -1,0 +1,25 @@
+#!/bin/bash
+
+user=`whoami`
+
+docsDir=/home/$user/Documents
+
+if [ ! -d $docsDir/notes ]; then
+	mkdir $docsDir/notes
+fi
+
+notesDir=/home/$user/Documents/notes/
+
+if [ $# -eq 0 ]; then
+	echo "Usage:"
+	echo "notes.sh [filename]"
+	echo ""
+	echo "All of your notes will be saved in $notesDir"
+	exit 1
+fi
+
+if [ ! -f $notesDir$1 ]; then
+	touch $notesDir$1 
+fi
+
+vim $notesDir$1

@@ -7,9 +7,9 @@
 if [ $# -eq 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ];
 then
 	echo Usage:
-	echo auto-youtube-sub [URL]
+	echo auto-youtube-dl [URL]
 	echo or
-	echo auto-youtube-sub -f [file]
+	echo auto-youtube-dl -f [file]
 	exit 1
 fi
 
