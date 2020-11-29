@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 #Provjeri argumente
 if [ $# -eq 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ];
 then
@@ -10,7 +9,6 @@ then
 	echo auto-youtube-dl -f [file]
 	exit 1
 fi
-
 
 preuzmi (){
 	#Ispisi zadani URL
@@ -24,7 +22,6 @@ preuzmi (){
 	#Skini URL u najboljem formatu s autogeneriranim subovima, anotacijama, descriptionom i info.json
 	youtube-dl -f $nf --write-auto-sub --write-description --write-info-json --write-annotations $1
 }
-
 
 if [ $# -eq 1 ]
 then
