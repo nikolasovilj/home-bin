@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+for dir_tmp in "$(find /home/$USER/ -name ".git")"; do for item in $(echo $dir_tmp | tr " " "\n"); do echo $item | grep -o '.*/' && for item2 in "$(echo $item | grep -o '.*/')"; do cd $item2 && git log | grep -i gmail | sort | uniq && echo -e "\n";done; done; done | less

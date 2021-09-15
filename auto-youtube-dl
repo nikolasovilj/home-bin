@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+#Provjeri argumente
+if [ $# -eq 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ];
+then
+	echo Usage:
+	echo auto-youtube-dl [URL]
+	echo or
+	echo auto-youtube-dl -f [file]
+	exit 1
+fi
+
+preuzmi (){
+	#Ispisi zadani URL
+	echo zadani URL je: $1
+
+	#nf varijabla (najbolji format)
+
+	nf=$(youtube-dl --list-formats $1 | grep -i best | tr -s '[:space:]' | cut -d " " -f 1)
+	echo najbolji format je koda: $nf
+
+	#Skini URL u najboljem formatu s autogeneriranim subovima, anotacijama, descriptionom i info.json
+	youtube-dl -f $nf --write-auto-sub --write-description --write-info-json --write-annotations $1
+}
+
+if [ $# -eq 1 ]
+then
+	preuzmi $1
+else
+	while read line;
+	do
+		preuzmi $line
+	done < $2
+fi
