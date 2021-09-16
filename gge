@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+for dir_tmp in $(find /home/$USER/ -name ".git"); do dir_tmp=$(echo $dir_tmp | grep -o '.*/'); cd $dir_tmp; pwd; git log | grep @ | sort | uniq; echo ""; done | less
