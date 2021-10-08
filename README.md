@@ -9,3 +9,4 @@ cd ~ && git clone https://github.com/nikolasovilj/home-bin.git &&\
 ## TODO:
 
 - [ ] ```cds``` - like ```cd``` but can change directories that come from stdout
+- [ ] ```has-exif``` - if no arguments are passed, searches current directory for pictures and videos and prints full pathname of those containing EXIF metadata
