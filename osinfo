@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 uname -a
+echo
 cat /etc/os-release
