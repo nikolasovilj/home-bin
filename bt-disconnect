@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ];
+then
+	echo "Usage:"
+	echo "$0 -> uses hardcoded mac address"
+	echo "or"
+	echo "$0 [mac]"
+	exit 0
+fi
+
+if [ $# -eq 0 ];
+then
+	bluetoothctl disconnect 20:1B:88:38:83:F2
+else
+	bluetoothctl disconnect $1
+fi

@@ -4,10 +4,10 @@
 if [ $# -eq 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ];
 then
 	echo Usage:
-	echo auto-youtube-dl [URL]
+	echo autod [URL]
 	echo or
-	echo auto-youtube-dl -f [file]
-	exit 1
+	echo autod -f [file]
+	exit
 fi
 
 preuzmi (){
