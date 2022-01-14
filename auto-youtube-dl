@@ -14,13 +14,8 @@ preuzmi (){
 	#Ispisi zadani URL
 	echo zadani URL je: $1
 
-	#nf varijabla (najbolji format)
-
-	nf=$(youtube-dl --list-formats $1 | grep -i best | tr -s '[:space:]' | cut -d " " -f 1)
-	echo najbolji format je koda: $nf
-
 	#Skini URL u najboljem formatu s autogeneriranim subovima, anotacijama, descriptionom i info.json
-	youtube-dl -f $nf --write-auto-sub --write-description --write-info-json --write-annotations $1
+	yt-dlp -f bestvideo+bestaudio --write-auto-sub --write-description --write-info-json --write-annotations $1
 }
 
 if [ $# -eq 1 ]

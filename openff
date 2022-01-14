@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+ff=`ls -p | grep -v / | head -n 1`
+
+if [ -z $ff ];
+then
+	echo "Couldn't find regular file to open!"
+	exit 0
+fi
+
+echo "opening $ff..."
+sleep 1
+
+xdg-open $ff
