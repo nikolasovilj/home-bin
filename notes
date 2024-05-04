@@ -22,4 +22,4 @@ if [ ! -f $notesDir$1 ]; then
 	touch $notesDir$1 
 fi
 
-vim $notesDir$1
+nvim $notesDir$1
