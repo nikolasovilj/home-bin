@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+interface=$(ip link | grep wlp | cut -d " " -f 2)
+interface=${interface::-1}
+echo "Restarting for interface: $interface"
+
+systemctl restart wpa_supplicant@$interface
