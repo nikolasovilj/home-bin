@@ -9,7 +9,7 @@ systemctl --no-pager status wpa_supplicant@$interface
 
 exit_status=1
 while [ $exit_status -ne 0 ]; do
+	sleep 2
 	ping google.com -c 1 2> /dev/null
 	exit_status=$?
-	sleep 2
 done
