@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# used to set up VPN with THM
+
+sudo openvpn ~/thm.ovpn
