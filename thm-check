@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# script to check connectivity with THM
+
+n=30
+# use UNIX timestamp format to add seconds
+startTimestamp=$(date +%s)
+endTimestamp=$((startTimestamp+n))
+currentTimestamp=$(date +%s) # just init
+exit_status=1
+
+try=1
+while [[ $exit_status -ne 0 && $currentTimestamp -lt $endTimestamp ]]; do
+    sleep 1
+    clear
+    echo "$try pinging THM endpoint at 10.10.10.10"
+    ping 10.10.10.10 -c 1 2> /dev/null
+    exit_status=$?  # Capture the exit status of the ping command
+    currentTimestamp=$(date +%s)
+    echo "currentTimest: $currentTimestamp"
+    echo "endTimestamp: $endTimestamp"
+    sleep 1
+    try=$((try+1))
+done
+
+if [ $exit_status -ne 0 ]; then
+    echo "$n seconds passed without connection"
+    echo "failed!!!"
+else
+    echo "success!!!"
+fi
+
