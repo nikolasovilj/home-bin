@@ -8,7 +8,7 @@ if [ ! -d $docsDir/notes ]; then
 	mkdir $docsDir/notes
 fi
 
-notesDir=/home/$user/Documents/notes/
+notesDir=$docsDir/notes/
 
 if [ $# -eq 0 ]; then
 	echo "Usage:"
