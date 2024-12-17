@@ -9,20 +9,24 @@ echo -n "enter the SSID: "
 read ssid
 password=$(systemd-ask-password --echo=no "enter the password: ")
 
-config=$(cat <<EOF
-network={
-	ssid="$ssid"
-	psk="$password"
-}
-EOF
-)
+config="network={
+    ssid=\"$ssid\"
+    psk=\"$password\"
+}"
+
+#config=$(cat <<EOF
+#network={
+#	ssid="$ssid"
+#	psk="$password"
+#}
+#EOF
+#)
 
 interface=$(ip link | grep wlp | cut -d " " -f 2)
 interface=${interface::-1}
-
 config_file="/etc/wpa_supplicant/$(ls /etc/wpa_supplicant | grep $interface)"
 echo "$config" > $config_file
-expand -t 4 $config_file > /etc/wpa_supplicant/tmp
-mv /etc/wpa_supplicant/tmp $config_file
+#expand -t 4 $config_file > /etc/wpa_supplicant/tmp
+#mv /etc/wpa_supplicant/tmp $config_file
 
 wpa-restart
