@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# type and command depend on env they are running on
+# as interactive command or from script so it varies
+type $1
+# could also do 'command -v $1'
+#command -v $1
+ldd $(which $1) | expand | tr -s " " | sed 's/^[[:space:]]*//' | cut -d " " -f 3,1 | column -t
