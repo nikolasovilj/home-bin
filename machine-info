@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+product_name=$(cat /sys/class/dmi/id/product_name)
+vendor=$(cat /sys/class/dmi/id/sys_vendor)
+product_version=$(cat /sys/class/dmi/id/product_version)
+
+echo "vendor: $vendor"
+echo "product name: $product_name"
+echo "product version: $product_version"
+
