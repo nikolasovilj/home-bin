@@ -5,18 +5,23 @@ if [[ ! $(type -t xclip) = file ]]; then
 	exit 1
 fi
 
-fm='+++
-title = "Some Title"
-slug = "some-title"
-date = 2026-02-22
-draft = false
-toc = true
+blogDirName=$(basename "$PWD")
+blogName=$(echo $blogDirName | cut -d "-" -f 2- | tr '-' " ")
+blogSlugName=$(echo $blogDirName | cut -d "-" -f 2- | tr '[:upper:]' '[:lower:]')
+blogDate=$(date '+%Y-%m-%d')
 
+# use double quotes to have variable expansion and escape internal double quotes
+fm="+++
+title = \"$blogName\"
+slug = \"$blogSlugName\"
+date = $blogDate
+draft = true
+toc = false
 [extra]
-og_image = "blog/0/preview.png"
-+++'
+og_image = \"blog/$blogDirName/preview.png\"
++++
+"
 
 # quoting $fm will make echoing it with newlines
 echo "$fm" | xclip -selection clipboard
-
 
