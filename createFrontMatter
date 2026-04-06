@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [[ ! $(type -t xclip) = file ]]; then
+	echo "make sure you install xclip"
+	exit 1
+fi
+
+fm='+++
+title = "Some Title"
+slug = "some-title"
+date = 2026-02-22
+draft = false
+toc = true
+
+[extra]
+og_image = "blog/0/preview.png"
++++'
+
+# quoting $fm will make echoing it with newlines
+echo "$fm" | xclip -selection clipboard
+
+
