@@ -16,8 +16,9 @@ title = \"$blogName\"
 slug = \"$blogSlugName\"
 date = $blogDate
 draft = true
-toc = false
 [extra]
+toc = false
+side_toc = false
 og_image = \"blog/$blogDirName/preview.png\"
 +++
 "
