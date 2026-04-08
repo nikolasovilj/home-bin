@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ ! "$1" =~ ^-- ]]; then
+  set -- "--$1" "${@:2}"
+fi
+
+SAL_FORCEDPI=130 GTK_THEME=Yaru:light /usr/bin/libreoffice "$@"
