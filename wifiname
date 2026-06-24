@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ip li sh | grep wlp | cut -d " " -f 2 | tr -d ":"
